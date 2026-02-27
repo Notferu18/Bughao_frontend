@@ -1,0 +1,67 @@
+/* src/components/dashboard/dashboard.css */
+.dash-wrapper {
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    color: #fff;
+    padding: 40px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .dash-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .dash-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .dash-brand {
+    font-weight: 800;
+    font-size: 22px;
+    color: #ff2d20; /* Red Branding */
+  }
+  
+  .logout-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #888;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .logout-btn:hover {
+    border-color: #ff2d20;
+    color: #ff2d20;
+  }
+  
+  .dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .dash-card {
+    background: #141414;
+    border: 1px solid #222;
+    padding: 24px;
+    border-radius: 12px;
+  }
+  
+  .card-title {
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .card-value {
+    font-size: 28px;
+    font-weight: 700;
+  }

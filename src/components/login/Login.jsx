@@ -1,0 +1,63 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './login.css'; 
+
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const VALID_EMAIL = "admin@bughao.com";
+  const VALID_PASSWORD = "password123";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+      navigate('/dashboard');
+    } else {
+      setError('Invalid credentials. Hint: admin@bughao.com / password123');
+    }
+  };
+
+  return (
+    <div className="login-wrapper">
+      <div className="login-card">
+        <header className="login-header">
+          <h1 className="login-title">Bughao</h1>
+          <p className="login-subtitle">Sign in to your account</p>
+        </header>
+
+        <form onSubmit={handleSubmit} className="login-form">
+          {error && <div className="login-error">{error}</div>}
+          
+          <input
+            type="email"
+            placeholder="Email address"
+            className="login-input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="login-input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
