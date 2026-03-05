@@ -8,8 +8,8 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const VALID_EMAIL = "admin@bughao.com";
-  const VALID_PASSWORD = "password123";
+  const VALID_EMAIL = "admin@gmail.com";
+  const VALID_PASSWORD = "123";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const Login = () => {
     if (email === VALID_EMAIL && password === VALID_PASSWORD) {
       navigate('/dashboard');
     } else {
-      setError('Invalid credentials. Hint: admin@bughao.com / password123');
+      setError('Invalid credentials. Please try again.');
     }
   };
 
@@ -33,22 +33,26 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="login-form">
           {error && <div className="login-error">{error}</div>}
           
+          <label className="login-label">Email Address</label>
           <input
             type="email"
-            placeholder="Email address"
+            placeholder="admin@bughao.com"
             className="login-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            autoComplete="email"
           />
 
+          <label className="login-label">Password</label>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="••••••••"
             className="login-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            autoComplete="current-password"
           />
 
           <button type="submit" className="login-button">
